@@ -9,12 +9,14 @@ and open the template in the editor.
         <title>project 1</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link type="text/css" rel="stylesheet" href="main.css">
-        <link type="text/css" rel="stylesheet" href="header.css">
-        <link type="text/css" rel="stylesheet" href="gridview.css">
-        <link type="text/css" rel="stylesheet" href="listview.css">
+        <link type="text/css" rel="stylesheet" href="css/main.css">
+        <link type="text/css" rel="stylesheet" href="css/header.css">
+        <link type="text/css" rel="stylesheet" href="css/gridview.css">
+        <link type="text/css" rel="stylesheet" href="css/listview.css">
+        <script src="data/movies.js"></script>
+        <script src="javascript/util.js"></script>
     </head>
-    <body>
+    <body onload="init()">
         <div id="header">
             rent a movie
         </div>
@@ -25,7 +27,6 @@ and open the template in the editor.
             grid view
         </div>
         <div id="listview">
-            listview
         </div>
         <div>TODO write content</div>
     </body>
