@@ -1,5 +1,8 @@
+#viewContainer{
+    position:relative;
+    top:145px;
+}
 #listview{
-
     height:auto;
     width:100%;
 }
@@ -9,14 +12,25 @@
     padding:0px;
 }
 #listview li{
-    height:260px;
-    border-top: 1px dotted lightgray;
+    height:270px;
+    border-bottom: 1px dotted lightgray;
+   padding-top:10px;
+    padding-bottom:10px;
+    position:relative;
+
+}
+#listview .liContainer{
+    position: absolute;
+    top:15px;
+    left:10px;
+    width: 100%; 
+        
 
 }
 #listview img{
     float:left;
-    position: relative;
-    bottom: -10px;
+
+
     height:220px;
     width:220px;
     padding:5px;
@@ -49,7 +63,7 @@
     font-size: 18px;
 }
 #listview .content header .date{
-
+    padding-left:5px;
     color: gray;
     font-size: 15px;
 }
@@ -61,6 +75,9 @@
 #listview .actors .words{
     font-weight: bold;
     font-size: 18px;
+}
+#listview .actors .actor{
+     font-size: 18px;
 }
 #listview .rating{
     display: flex;
