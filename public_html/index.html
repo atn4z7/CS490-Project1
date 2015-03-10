@@ -18,16 +18,29 @@ and open the template in the editor.
     </head>
     <body onload="init()">
         <div id="header">
-            rent a movie
+            <div class="rentHolder">
+                <img id="movieIcon" src='images/movie.png'> 
+                <span id="title">RENT A MOVIE</span>
+                <div id="searchBarHolder">
+                    <input placeholder="Search for movies here" id="searchField" type="text">
+                    <button id="searchBtn" onclick="search()"> Search </button>
+                    <div id="suggestions_box" class="suggestions">
+                    </div>
+                </div>
+            </div>
+            <div class="sortHolder">
+                <div id="sortTxt">Sort By:</div>
+                <select>
+                    <option value="eng">Year</option>
+                    <option value="doc">Doctor</option>
+                </select>
+                <img onclick="showGrid()" id="gridBtn" src='images/grid.jpg'>
+                <img onclick="showList()" id="listBtn" src='images/list.jpg'>
+            </div>
         </div>
-        <div id="iconbar">
-            sort by:
+        <div id="viewContainer">
+            <div id="gridview"></div>
+            <div id="listview"></div>
         </div>
-        <div id="gridview">
-            grid view
-        </div>
-        <div id="listview">
-        </div>
-        <div>TODO write content</div>
     </body>
 </html>

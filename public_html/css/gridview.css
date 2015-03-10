@@ -1,10 +1,66 @@
-/*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
-*/
-/* 
-    Created on : Mar 3, 2015, 5:06:21 PM
-    Author     : Reggie
-*/
+#gridview .photo{
+    position:relative;
+    float:left;
+    
+    margin-top: 30px;
+    margin-left: 30px;
+    height: 200px;
+    width: 200px;
+    padding: 5px;
+}
 
+#gridview img{
+    background-color: white;
+    padding: 5px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: lightgray;
+    width: 190px;
+    height: 190px;
+}
+#gridview .photo img.HD{
+    
+}
+
+#gridview .photo .description{
+    position:absolute;
+    top:162px;
+    left:11px;
+    height:40px;
+    width:190px;
+    background-color:black;
+    opacity:0.4;
+}
+#gridview .photo p.title{
+    position:absolute;
+    top:151px;
+    color: white;
+    left:11px;
+    width:190px;
+    text-align: center;
+    font-size:14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    opacity: 1;
+}
+#gridview .photo p.year{
+    position:absolute;
+    top:166px;
+    color: white;
+    left:11px;
+    width:190px;
+    text-align: center;
+    font-size:16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    opacity: 1;
+}
+
+#gridview .photo:hover .description{
+    opacity:0.3;
+}
+
+
+#gridview .photo:hover .description{
+    opacity: 1;
+}
