@@ -1,5 +1,5 @@
 #listview{
-    background-color:red;
+
     height:auto;
     width:100%;
 }
@@ -9,39 +9,65 @@
     padding:0px;
 }
 #listview li{
-    height:100px;
+    height:260px;
+    border-top: 1px dotted lightgray;
+
 }
 #listview img{
     float:left;
-    height:100px;
-    width:100px;
+    position: relative;
+    bottom: -10px;
+    height:220px;
+    width:220px;
+    padding:5px;
+    background-color: white;
+    border-style: solid;
+    border-width: 1px;
+    border-color: lightgray;
+    
+ 
 }
 #listview .content{
+    padding-left: 10px;
     width:auto;
-    background-color:cyan;
-    height:100%;
+    height:auto;
     overflow:hidden;
+    
+
 }
 #listview .content .words{
     float:left;
     margin-right:10px;
 }
 #listview .content header{
-    background-color: chartreuse;
+
+
 }
 #listview .content header .title{
-    background-color: darkorange;
+   
+    font-weight: bold;
+    font-size: 18px;
 }
 #listview .content header .date{
-    background-color: goldenrod;
+
+    color: gray;
+    font-size: 15px;
 }
 #listview .actors{
     display: flex;
-    background-color: deeppink;
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+#listview .actors .words{
+    font-weight: bold;
+    font-size: 18px;
 }
 #listview .rating{
     display: flex;
-    background-color: forestgreen;
+
+    font-weight: bold;
+    font-size: 18px;
+    padding-bottom: 5px;
 }
 #listview .rating img{
     height:20px;
@@ -50,5 +76,13 @@
 }
 #listview .info{
     display: flex;
-    background-color: gold;
+    background-color: rgb(236,255,255);
+    line-height: 1.5;
+    width: 450px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: lightgray;
+    padding: 7px;
+    border-radius: 5px;
+
 }
