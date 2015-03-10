@@ -13,23 +13,39 @@ and open the template in the editor.
         <link type="text/css" rel="stylesheet" href="css/header.css">
         <link type="text/css" rel="stylesheet" href="css/gridview.css">
         <link type="text/css" rel="stylesheet" href="css/listview.css">
+        <script src="data/movies.js"></script>
+        <script src="javascript/util.js"></script>
     </head>
     <body onload="init()">
         <div id="header">
-            rent a movie
+            <div class="rentHolder">
+                <img id="movieIcon" src='images/movie.png'> 
+                <span id="title">RENT A MOVIE</span>
+                <div id="searchBarHolder">
+                    <input placeholder="Search for movies here" id="searchField" type="text">
+                    <button id="searchBtn" onclick="search()"> Search </button>
+                    <div id="suggestions_box" class="suggestions">
+                    </div>
+                </div>
+            </div>
+            <div class="sortHolder">
+                <div id="sortTxt">Sort By:</div>
+                <select>
+                    <option value="eng">Year</option>
+                    <option value="doc">Doctor</option>
+                </select>
+                <img id="gridBtn" src='images/grid.jpg'>
+                <img id="listBtn" src='images/list.jpg'>
+            </div>
         </div>
         <div id="iconbar">
             sort by:
         </div>
         <div id="gridview">
-            <div class="photo">
-                <img src="images/1.jpg">
-                <div class="description"></div>
-                <p class="title">test</p>
-                <p class="year">(1992)</p>
-            </div> 
+            grid view
         </div>
         <div id="listview">
+            listview
         </div>
         <div>TODO write content</div>
     </body>

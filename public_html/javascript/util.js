@@ -11,6 +11,7 @@ function get_img(movie){
     img.setAttribute("alt","movie_pic");
     return img;
 }
+
 function get_title(movie){
     var title = document.createElement("span");
     title.setAttribute("class","title");
@@ -91,3 +92,36 @@ function fill_movie_info(){
     
     $id("listview").appendChild(ul);
 }
+
+
+function search() {
+    var result = new Array();
+    var text_field = $id("searchField");
+    var value = text_field.value;
+
+    for (var i = 0; i < movies.movies.length; i++) {
+        //trim the value, and make case insensitive comparison
+        var start = (movies.movies[i].title + movies.movies[i].year + movies.movies[i].starring)
+                .toLowerCase().search(value.toLowerCase().trim());
+        if (start != -1) //if the index is found
+            result.push(movies.movies[i].title+movies.movies[i].year + movies.movies[i].starring);
+    }
+    show_search_results(text_field, result, "suggestions_box", "sub_suggestions");
+}
+
+function show_search_results(text_field, results, sug_box, sug_item) {
+
+    $id(sug_box).style.display = results.length == 0 ? "none" : "block";
+    $id(sug_box).focus();
+
+    /* add the suggestion items */
+    var html_code = "";
+    for (var i = 0; i < results.length; i++) {
+        html_code += "<div class='" + sug_item + "' id='" + results[i] + "' >";
+        html_code += results[i];
+        html_code += "</div>";
+    }
+
+    $id(sug_box).innerHTML = html_code;
+}
+
