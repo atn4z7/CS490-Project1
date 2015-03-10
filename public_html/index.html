@@ -34,13 +34,12 @@ and open the template in the editor.
                     <option value="eng">Year</option>
                     <option value="doc">Doctor</option>
                 </select>
-                <img onclick="showGrid()" id="gridBtn" src='images/grid.jpg'>
-                <img onclick="showList()" id="listBtn" src='images/list.jpg'>
+                <img onclick="show('grid')" id="gridBtn" src='images/grid.jpg'>
+                <img onclick="show('list')" id="listBtn" src='images/list.jpg'>
             </div>
         </div>
         <div id="viewContainer">
-            <div id="gridview"></div>
-            <div id="listview"></div>
+            <div id="view" class="list"></div>
         </div>
     </body>
 </html>

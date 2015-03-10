@@ -1,19 +1,19 @@
-#listview{
+#view.list{
 
     height:auto;
     width:100%;
 }
-#listview ul{
+#view.list ul{
     list-style: none;
     margin:0px;
     padding:0px;
 }
-#listview li{
+#view.list li{
     height:260px;
     border-top: 1px dotted lightgray;
 
 }
-#listview img{
+#view.list img{
     float:left;
     position: relative;
     bottom: -10px;
@@ -27,7 +27,7 @@
     
  
 }
-#listview .content{
+#view.list .content{
     padding-left: 10px;
     width:auto;
     height:auto;
@@ -35,46 +35,46 @@
     
 
 }
-#listview .content .words{
+#view.list .content .words{
     float:left;
     margin-right:10px;
 }
-#listview .content header{
+#view.list .content header{
 
 
 }
-#listview .content header .title{
+#view.list .content header .title{
    
     font-weight: bold;
     font-size: 18px;
 }
-#listview .content header .date{
+#view.list .content header .date{
 
     color: gray;
     font-size: 15px;
 }
-#listview .actors{
+#view.list .actors{
     display: flex;
     padding-top: 12px;
     padding-bottom: 12px;
 }
-#listview .actors .words{
+#view.list .actors .words{
     font-weight: bold;
     font-size: 18px;
 }
-#listview .rating{
+#view.list .rating{
     display: flex;
 
     font-weight: bold;
     font-size: 18px;
     padding-bottom: 5px;
 }
-#listview .rating img{
+#view.list .rating img{
     height:20px;
     width:20px;
     float:left;
 }
-#listview .info{
+#view.list .info{
     display: flex;
     background-color: rgb(236,255,255);
     line-height: 1.5;

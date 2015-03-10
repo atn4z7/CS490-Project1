@@ -1,10 +1,9 @@
 function $id(id){
     return document.getElementById(id);
-}  
+}
 function init(){
-    fill_movie_info();
-    fill_gird_view();
-    showList();
+    fill_view();
+    show('list');
 }
 function get_img(movie){
     var img = document.createElement("img");
@@ -78,7 +77,7 @@ function get_content(movie){
 
     return content;
 }
-function fill_movie_info(){
+function fill_view(){
     var ul = document.createElement("ul");
     
     for(var i=0;i<movies.movies.length;i++){
@@ -93,22 +92,17 @@ function fill_movie_info(){
         ul.appendChild(li);
     }
     
-    $id("listview").appendChild(ul);
+    $id("view").appendChild(ul);
 }
-function fill_gird_view(){
-    $id("gridview").innerHTML =
+function fill_grid_view(){
+    /*
             '<div class="photo">'+
                 '<img src="images/1.jpg">'+
                 '<div class="description"></div>'+
                 '<p class="title">test</p>'+
                 '<p class="year">(1992)</p>'+
-            '</div>';
+            '</div>';*/
 }
-function showGrid(){
-    $id("listview").style.display = "none";
-    $id("gridview").style.display = "initial";
-}
-function showList(){
-    $id("gridview").style.display = "none";
-    $id("listview").style.display = "initial";
+function show(view){
+    $id("view").className = view;
 }
