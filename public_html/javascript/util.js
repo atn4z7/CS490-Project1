@@ -1,7 +1,6 @@
 function $id(id){
     return document.getElementById(id);
-}
-    
+}  
 function init(){
     fill_movie_info();
     fill_gird_view();
