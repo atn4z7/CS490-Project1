@@ -101,10 +101,10 @@ function search() {
 
     for (var i = 0; i < movies.movies.length; i++) {
         //trim the value, and make case insensitive comparison
-        var start = (movies.movies[i].title + movies.movies[i].year + movies.movies[i].starring)
+        var start = (movies.movies[i].title +"("+ movies.movies[i].year +"), Starring:"+ movies.movies[i].starring)
                 .toLowerCase().search(value.toLowerCase().trim());
         if (start != -1) //if the index is found
-            result.push(movies.movies[i].title+movies.movies[i].year + movies.movies[i].starring);
+            result.push(movies.movies[i].title+"("+movies.movies[i].year+"), Starring:" + movies.movies[i].starring);
     }
     show_search_results(text_field, result, "suggestions_box", "sub_suggestions");
 }
