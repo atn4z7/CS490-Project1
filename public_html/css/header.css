@@ -42,6 +42,15 @@
     border-bottom-left-radius: 5px;
     width: 450px;
 }
+
+#header div.sub_suggestions{
+    width:470px;
+    border: 1px solid lightgray;
+}
+
+#header div.sub_suggestions:hover{
+    background-color:rgb(245,245,245);
+}
 #header #searchBtn {
     position:relative;
     padding:6px 15px;

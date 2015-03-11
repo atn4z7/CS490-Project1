@@ -139,8 +139,9 @@ function show_search_results(text_field, results, sug_box, sug_item) {
     /* add the suggestion items */
     var html_code = "";
     for (var i = 0; i < results.length; i++) {
-        html_code += "<div class='" + sug_item + "' id='" + results[i] + "' >";
-        html_code += results[i];
+        html_code += "<div class='" + sug_item + "' id= '"  + "' >";
+        html_code += results[i].replace(results[i].substring(0,results[i].lastIndexOf("(")),
+            "<b>"+results[i].substring(0,results[i].lastIndexOf("("))+"</b>");
         html_code += "</div>";
     }
 
