@@ -118,17 +118,28 @@ function search() {
         if (start != -1) //if the index is found
             result.push(movies.movies[i].title+"("+movies.movies[i].year+"), Starring:" + movies.movies[i].starring);
     }
-    show_search_results(text_field, result, "suggestions_box", "sub_suggestions");
+    if (text_field.value.length!=0){
+        show_search_results(text_field, result, "suggestions_box", "sub_suggestions");
+    }
+    else{
+        var child=document.getElementById("sub_suggestions");
+        var parent=document.getElementById("suggestions_box");
+        while (parent.hasChildNodes()) {
+            parent.removeChild(parent.lastChild);
+        }
+     
+    }
 }
 function show_search_results(text_field, results, sug_box, sug_item) {
 
     $id(sug_box).style.display = results.length == 0 ? "none" : "block";
     $id(sug_box).focus();
+    
 
     /* add the suggestion items */
     var html_code = "";
-    for (var i = 0; i < results.length; i++) {
-        html_code += "<div class='" + sug_item + "' id= '"  + "' >";
+    for (var i = 0; i < results.length && i<5; i++) {
+        html_code += "<div class='" + sug_item + "' id= '" + sug_item + "' >";
         html_code += results[i].replace(results[i].substring(0,results[i].lastIndexOf("(")),
             "<b>"+results[i].substring(0,results[i].lastIndexOf("("))+"</b>");
         html_code += "</div>";
