@@ -1,5 +1,8 @@
+#viewContainer{
+    position:relative;
+    top:145px;
+}
 #view.list{
-
     height:auto;
     width:100%;
 }
@@ -9,14 +12,20 @@
     padding:0px;
 }
 #view.list li{
-    height:260px;
-    border-top: 1px dotted lightgray;
-
+    height:270px;
+    border-bottom: 1px dotted lightgray;
+   padding-top:10px;
+    padding-bottom:10px;
+    position:relative;
+}
+#view.list .liContainer{
+    position: absolute;
+    top:15px;
+    left:10px;
+    width: 100%; 
 }
 #view.list img{
     float:left;
-    position: relative;
-    bottom: -10px;
     height:220px;
     width:220px;
     padding:5px;
@@ -24,32 +33,26 @@
     border-style: solid;
     border-width: 1px;
     border-color: lightgray;
-    
- 
 }
 #view.list .content{
     padding-left: 10px;
     width:auto;
     height:auto;
     overflow:hidden;
-    
-
 }
 #view.list .content .words{
     float:left;
     margin-right:10px;
 }
 #view.list .content header{
-
-
+    
 }
 #view.list .content header .title{
-   
     font-weight: bold;
     font-size: 18px;
 }
 #view.list .content header .date{
-
+    padding-left:5px;
     color: gray;
     font-size: 15px;
 }
@@ -62,9 +65,11 @@
     font-weight: bold;
     font-size: 18px;
 }
+#view.list .actors .actor{
+     font-size: 18px;
+}
 #view.list .rating{
     display: flex;
-
     font-weight: bold;
     font-size: 18px;
     padding-bottom: 5px;
@@ -84,5 +89,4 @@
     border-color: lightgray;
     padding: 7px;
     border-radius: 5px;
-
 }
