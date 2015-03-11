@@ -1,7 +1,4 @@
-
-
-
-/*#gridview .photo{
+#gridview.photo{
     position:relative;
     float:left;
     
@@ -21,11 +18,11 @@
     width: 190px;
     height: 190px;
 }
-#gridview .photo img.HD{
+#gridview.photo img.HD{
     
 }
 
-#gridview .photo .description{
+#gridview.photo .description{
     position:absolute;
     top:162px;
     left:11px;
@@ -34,7 +31,7 @@
     background-color:black;
     opacity:0.4;
 }
-#gridview .photo p.title{
+#gridview.photo p.title{
     position:absolute;
     top:151px;
     color: white;
@@ -46,7 +43,7 @@
     text-transform: uppercase;
     opacity: 1;
 }
-#gridview .photo p.year{
+#gridview.photo p.year{
     position:absolute;
     top:166px;
     color: white;
@@ -59,12 +56,11 @@
     opacity: 1;
 }
 
-#gridview .photo:hover .description{
+#gridview.photo:hover .description{
     opacity:0.3;
 }
 
 
-#gridview .photo:hover .description{
+#gridview.photo:hover .description{
     opacity: 1;
 }
-*/

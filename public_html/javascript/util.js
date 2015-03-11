@@ -1,6 +1,9 @@
 function $id(id){
     return document.getElementById(id);
 }
+function $class(classes){
+    return document.getElementsByClassName(classes);
+}
 function init(){
     fill_view();
     show('list');
@@ -77,37 +80,35 @@ function get_content(movie){
 
     return content;
 }
+function get_container(movie){
+    var licontain = document.createElement("div");
+    licontain.setAttribute("class","liContainer");
+
+    licontain.appendChild(get_img(movie));
+    licontain.appendChild(get_content(movie));
+    return licontain;
+}
 function fill_view(){
     var ul = document.createElement("ul");
     
     for(var i=0;i<movies.movies.length;i++){
         var li = document.createElement("li");
-        var licontain = document.createElement("div");
-        licontain.setAttribute("class","liContainer");
+        li.setAttribute("id","movie_"+
+                movies.movies[i].title.replace(/ /g, "_"));
+        li.setAttribute("class","movie");
         
-        licontain.appendChild(get_img(movies.movies[i]));
-        licontain.appendChild(get_content(movies.movies[i]));
-        
-        li.appendChild(licontain);
+        li.appendChild(get_container(movies.movies[i]));
         ul.appendChild(li);
     }
     
     $id("view").appendChild(ul);
-}
-function fill_grid_view(){
-    /*
-            '<div class="photo">'+
-                '<img src="images/1.jpg">'+
-                '<div class="description"></div>'+
-                '<p class="title">test</p>'+
-                '<p class="year">(1992)</p>'+
-            '</div>';*/
 }
 function show(view){
     $id("view").className = view;
 }
 function search() {
     var result = new Array();
+    var dispresult = new Array();
     var text_field = $id("searchField");
     var value = text_field.value;
 
@@ -115,18 +116,35 @@ function search() {
         //trim the value, and make case insensitive comparison
         var start = (movies.movies[i].title +"("+ movies.movies[i].year +"), Starring:"+ movies.movies[i].starring)
                 .toLowerCase().search(value.toLowerCase().trim());
-        if (start != -1) //if the index is found
+        if (start != -1){ //if the index is found
             result.push(movies.movies[i].title+"("+movies.movies[i].year+"), Starring:" + movies.movies[i].starring);
+            dispresult.push(movies.movies[i].title);
+        }
     }
     if (text_field.value.length!=0){
         show_search_results(text_field, result, "suggestions_box", "sub_suggestions");
     }
     else{
-        //var child=document.getElementById("sub_suggestions");
-        var parent=document.getElementById("suggestions_box");
-        //while (parent.hasChildNodes()) {
-            parent.innerHTML="";
-        //}
+        document.getElementById("suggestions_box").style.display = "none";
+    }
+}
+
+function search2() {
+    var dispresult = new Array();
+    var text_field = $id("searchField");
+    var value = text_field.value;
+
+    for (var i = 0; i < movies.movies.length; i++) {
+        //trim the value, and make case insensitive comparison
+        var start = (movies.movies[i].title +"("+ movies.movies[i].year +"), Starring:"+ movies.movies[i].starring)
+                .toLowerCase().search(value.toLowerCase().trim());
+        if (start != -1){ //if the index is founddispresult.push(movies.movies[i].title);
+            dispresult.push(movies.movies[i].title);
+        }
+    }
+    if (text_field.value.length!=0){
+        Display_search_results(dispresult);
+        document.getElementById("suggestions_box").style.display = "none";
     }
 }
 function show_search_results(text_field, results, sug_box, sug_item) {
@@ -137,12 +155,36 @@ function show_search_results(text_field, results, sug_box, sug_item) {
 
     /* add the suggestion items */
     var html_code = "";
-    for (var i = 0; i < results.length&&i<5; i++) {
-        html_code += "<div class='" + sug_item + "' id= '" + sug_item + "' >";
+    for (var i = 0; i < results.length && i<5; i++) {
+        html_code += "<div class='" + sug_item + "' id= '" + sug_item + 
+                "' onclick='fillSearch(\""+ results[i] +"\")" +"'>";
         html_code += results[i].replace(results[i].substring(0,results[i].lastIndexOf("(")),
             "<b>"+results[i].substring(0,results[i].lastIndexOf("("))+"</b>");
         html_code += "</div>";
     }
 
     $id(sug_box).innerHTML = html_code;
+}
+
+function fillSearch(movie){
+    document.getElementById("suggestions_box").style.display = "none";
+    document.getElementById("searchField").value=movie;
+    //document.getElementById("searchField").appendChild(movie);
+}
+
+function Display_search_results(results){
+    var movies = $class("movie");
+    for(var i=0; i< movies.length; i++){
+        movies[i].style.display = "none";
+    }
+    for(var i=0; i< movies.length; i++){
+            console.log(i);
+        for(var j=0; j< results.length; j++){
+            console.log(movies[i].id+"--movie_"+results[j].replace(/ /g, "_"));
+            if(movies[i].id == "movie_"+results[j].replace(/ /g, "_")){
+                movies[i].style.display = "block";
+                console.log(true);
+            }
+        }
+    }
 }
