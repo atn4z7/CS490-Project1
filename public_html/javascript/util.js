@@ -122,12 +122,11 @@ function search() {
         show_search_results(text_field, result, "suggestions_box", "sub_suggestions");
     }
     else{
-        var child=document.getElementById("sub_suggestions");
+        //var child=document.getElementById("sub_suggestions");
         var parent=document.getElementById("suggestions_box");
-        while (parent.hasChildNodes()) {
-            parent.removeChild(parent.lastChild);
-        }
-     
+        //while (parent.hasChildNodes()) {
+            parent.innerHTML="";
+        //}
     }
 }
 function show_search_results(text_field, results, sug_box, sug_item) {
@@ -138,7 +137,7 @@ function show_search_results(text_field, results, sug_box, sug_item) {
 
     /* add the suggestion items */
     var html_code = "";
-    for (var i = 0; i < results.length && i<5; i++) {
+    for (var i = 0; i < results.length&&i<5; i++) {
         html_code += "<div class='" + sug_item + "' id= '" + sug_item + "' >";
         html_code += results[i].replace(results[i].substring(0,results[i].lastIndexOf("(")),
             "<b>"+results[i].substring(0,results[i].lastIndexOf("("))+"</b>");
