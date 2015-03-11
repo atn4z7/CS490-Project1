@@ -44,18 +44,29 @@ function get_actors(movie){
     return div;
 }
 function get_rating(movie){
+    var rating = document.createElement("div");
+    rating.setAttribute("class","rating");
+    
     var words = document.createElement("span");
     words.setAttribute("class","words");
     words.appendChild(document.createTextNode("Rating: "));
-
-    var img = document.createElement("img");
-    img.setAttribute("src","images/regular_star.png");
-    img.setAttribute("alt"," ");
-
-    var rating = document.createElement("div");
-    rating.setAttribute("class","rating");
     rating.appendChild(words);
-    rating.appendChild(img);
+    
+    for(var i=0;i<movie.rating;i++){
+        var img = document.createElement("img");
+        img.setAttribute("src","images/gold_star.png");
+        img.setAttribute("alt"," ");
+        rating.appendChild(img);
+    }
+    for(var i=5-movie.rating;i>0;i--){
+        var img = document.createElement("img");
+        img.setAttribute("src","images/regular_star.png");
+        img.setAttribute("alt"," ");
+        rating.appendChild(img);
+    }
+  
+    
+    
     return rating;
 }
 function get_info(movie){
@@ -88,7 +99,7 @@ function get_container(movie){
     licontain.appendChild(get_content(movie));
     return licontain;
 }
-function fill_view(){
+function fill_view(){    
     var ul = document.createElement("ul");
     
     for(var i=0;i<movies.movies.length;i++){
@@ -100,11 +111,34 @@ function fill_view(){
         li.appendChild(get_container(movies.movies[i]));
         ul.appendChild(li);
     }
-    
     $id("view").appendChild(ul);
 }
 function show(view){
     $id("view").className = view;
+    if (view == "list"){
+        $id("listBtn").src="images/list_pressed.jpg"; 
+        $id("gridBtn").src="images/grid.jpg";
+    }
+    else{
+        $id("gridBtn").src="images/grid_pressed.jpg";
+        $id("listBtn").src="images/list.jpg"; 
+    }
+}
+function sort(){
+    var value=$id("combo_box").value.toLowerCase();
+    movies["movies"]=movies["movies"].sort(
+            function(a,b){
+                if(a[value]<b[value])
+                    return 1;
+                if(a[value]==b[value])
+                    return 0;
+                if(a[value]>b[value])
+                    return -1;
+            }
+            );
+    
+    $id("view").innerHTML = "";
+    fill_view(); 
 }
 function search() {
     var result = new Array();
