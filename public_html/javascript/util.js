@@ -122,11 +122,8 @@ function search() {
         show_search_results(text_field, result, "suggestions_box", "sub_suggestions");
     }
     else{
-        var child=document.getElementById("sub_suggestions");
         var parent=document.getElementById("suggestions_box");
-        while (parent.hasChildNodes()) {
-            parent.removeChild(parent.lastChild);
-        }
+        parent.innerHTML="";
      
     }
 }
