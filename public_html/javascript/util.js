@@ -121,18 +121,42 @@ function search() {
             dispresult.push(movies.movies[i].title);
         }
     }
-    show_search_results(text_field, result, "suggestions_box", "sub_suggestions");
-    Display_search_results(dispresult);
+    if (text_field.value.length!=0){
+        show_search_results(text_field, result, "suggestions_box", "sub_suggestions");
+    }
+    else{
+        document.getElementById("suggestions_box").style.display = "none";
+    }
+}
+
+function search2() {
+    var dispresult = new Array();
+    var text_field = $id("searchField");
+    var value = text_field.value;
+
+    for (var i = 0; i < movies.movies.length; i++) {
+        //trim the value, and make case insensitive comparison
+        var start = (movies.movies[i].title +"("+ movies.movies[i].year +"), Starring:"+ movies.movies[i].starring)
+                .toLowerCase().search(value.toLowerCase().trim());
+        if (start != -1){ //if the index is founddispresult.push(movies.movies[i].title);
+            dispresult.push(movies.movies[i].title);
+        }
+    }
+    if (text_field.value.length!=0){
+        Display_search_results(dispresult);
+        document.getElementById("suggestions_box").style.display = "none";
+    }
 }
 function show_search_results(text_field, results, sug_box, sug_item) {
 
     $id(sug_box).style.display = results.length == 0 ? "none" : "block";
     $id(sug_box).focus();
+    
 
     /* add the suggestion items */
     var html_code = "";
-    for (var i = 0; i < results.length; i++) {
-        html_code += "<div class='" + sug_item + "' id= '"  + "' >";
+    for (var i = 0; i < results.length && i<5; i++) {
+        html_code += "<div class='" + sug_item + "' id= '" + sug_item + "' >";
         html_code += results[i].replace(results[i].substring(0,results[i].lastIndexOf("(")),
             "<b>"+results[i].substring(0,results[i].lastIndexOf("("))+"</b>");
         html_code += "</div>";

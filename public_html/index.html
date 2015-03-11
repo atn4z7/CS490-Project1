@@ -22,8 +22,9 @@ and open the template in the editor.
                 <img id="movieIcon" src='images/movie.png'> 
                 <span id="title">RENT A MOVIE</span>
                 <div id="searchBarHolder">
-                    <input placeholder="Search for movies here" id="searchField" type="text">
-                    <button id="searchBtn" onclick="search()"> Search </button>
+                    <input placeholder="Search for movies here" id="searchField" type="text"
+                           onkeyup="search()" >
+                    <button id="searchBtn" onclick="search2()"> Search </button>
                     <div id="suggestions_box" class="suggestions"></div>
                 </div>
             </div>
