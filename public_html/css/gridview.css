@@ -18,9 +18,21 @@
     border-width: 1px;
     border-color: lightgray;
 }
-#view.grid img{
+#view.grid .imgcontainer{
+    display:inline;
+    height:100%;
+    width:10%;
+}
+#view.grid .pic{
     height:100%;
     width:100%;
+}
+#view.grid .yHD{
+    position: absolute;
+    height: 50px;
+    width:50px;
+    left: 5px;
+    top: 5px;
 }
 #view.grid .content{
     position: absolute;

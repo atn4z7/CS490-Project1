@@ -10,9 +10,20 @@ function init(){
 }
 function get_img(movie){
     var img = document.createElement("img");
+    img.setAttribute("class","pic");
     img.setAttribute("src",movie.photo);
     img.setAttribute("alt","movie_pic");
-    return img;
+    
+    var hd = document.createElement("img");
+    hd.setAttribute("class","yHD");
+    hd.setAttribute("src","images/HD.png");
+    hd.setAttribute("alt","HD");
+    
+    var contain = document.createElement("div");
+    contain.setAttribute("class","imgcontainer");
+    contain.appendChild(img);
+    contain.appendChild(hd);
+    return contain;
 }
 function get_title(movie){
     var title = document.createElement("span");
