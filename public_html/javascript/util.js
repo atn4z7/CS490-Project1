@@ -6,7 +6,7 @@ function $class(classes){
 }
 function init(){
     fill_view();
-    show('list');
+    show('grid');
 }
 function get_img(movie){
     var img = document.createElement("img");
@@ -135,7 +135,7 @@ function sort(){
                 if(a[value]>b[value])
                     return -1;
             }
-            );
+        );
     
     $id("view").innerHTML = "";
     fill_view(); 

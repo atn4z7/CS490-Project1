@@ -1,3 +1,69 @@
+#view.grid ul{
+    list-style: none;
+    margin:0px;
+    padding:0px;
+}
+#view.grid li{
+    float:left;
+    height: 210px;
+    width: 210px;
+}
+#view.grid .liContainer{
+    position: relative;
+    height: 200px;
+    width: 200px;
+    padding:5px;
+    background-color: white;
+    border-style: solid;
+    border-width: 1px;
+    border-color: lightgray;
+}
+#view.grid img{
+    height:100%;
+    width:100%;
+}
+#view.grid .content{
+    position: absolute;
+    bottom:5px;
+    width:200px;
+    height:50px;
+    overflow: hidden;
+    color:white;
+}
+#view.grid .content .words{
+    float:left;
+    margin-right:10px;
+}
+
+
+#view.grid .content header{
+    background-color: rgba(0,0,0,.6);
+}
+#view.grid .content header .title{
+    font-weight: bold;
+    font-size: 18px;
+}
+#view.grid .content header .date{
+    padding-left:5px;
+    color: gray;
+    font-size: 15px;
+}
+
+
+#view.grid .actors{
+    background-color: rgba(0,0,0,.7);
+}
+#view.grid .actors .words{
+    font-weight: bold;
+    font-size: 18px;
+}
+#view.grid .actors .actor{
+     font-size: 18px;
+}
+#view.grid .rating, #view.grid .info{
+    display: none;
+}
+/*
 #gridview.photo{
     position:relative;
     float:left;
@@ -55,12 +121,4 @@
     text-transform: uppercase;
     opacity: 1;
 }
-
-#gridview.photo:hover .description{
-    opacity:0.3;
-}
-
-
-#gridview.photo:hover .description{
-    opacity: 1;
-}
+*/
