@@ -18,6 +18,13 @@
     border-width: 1px;
     border-color: lightgray;
 }
+#view.grid .liContainer:hover .content{
+    top:85px;
+    height:120px;
+}
+#view.grid .liContainer:hover header{
+    background-color: rgba(0,0,0,.6);
+}
 #view.grid .imgcontainer{
     display:inline;
     height:100%;
@@ -36,101 +43,46 @@
 }
 #view.grid .content{
     position: absolute;
-    bottom:5px;
+    top: 165px;
+    height:40px;
     width:200px;
-    height:50px;
     overflow: hidden;
     color:white;
-}
-#view.grid .content .words{
-    float:left;
-    margin-right:10px;
+    transition: 1s;
 }
 
 
 #view.grid .content header{
-    background-color: rgba(0,0,0,.6);
+    height:80px;
+    width: 200px;
+    background-color: rgba(0,0,0,.4);
 }
 #view.grid .content header .title{
-    font-weight: bold;
+    display: block;
     font-size: 18px;
+    font-weight: bold;
+    text-align: center;
 }
 #view.grid .content header .date{
-    padding-left:5px;
-    color: gray;
+    display: block;
     font-size: 15px;
+    text-align: center;
 }
 
 
 #view.grid .actors{
+    width: 200px;
     background-color: rgba(0,0,0,.7);
 }
 #view.grid .actors .words{
+    display: block;
     font-weight: bold;
     font-size: 18px;
 }
 #view.grid .actors .actor{
-     font-size: 18px;
+    display: block;
+    font-size: 18px;
 }
 #view.grid .rating, #view.grid .info{
     display: none;
 }
-/*
-#gridview.photo{
-    position:relative;
-    float:left;
-    
-    margin-top: 30px;
-    margin-left: 30px;
-    height: 200px;
-    width: 200px;
-    padding: 5px;
-}
-
-#gridview img{
-    background-color: white;
-    padding: 5px;
-    border-style: solid;
-    border-width: 1px;
-    border-color: lightgray;
-    width: 190px;
-    height: 190px;
-}
-#gridview.photo img.HD{
-    
-}
-
-#gridview.photo .description{
-    position:absolute;
-    top:162px;
-    left:11px;
-    height:40px;
-    width:190px;
-    background-color:black;
-    opacity:0.4;
-}
-#gridview.photo p.title{
-    position:absolute;
-    top:151px;
-    color: white;
-    left:11px;
-    width:190px;
-    text-align: center;
-    font-size:14px;
-    font-weight: bold;
-    text-transform: uppercase;
-    opacity: 1;
-}
-#gridview.photo p.year{
-    position:absolute;
-    top:166px;
-    color: white;
-    left:11px;
-    width:190px;
-    text-align: center;
-    font-size:16px;
-    font-weight: bold;
-    text-transform: uppercase;
-    opacity: 1;
-}
-*/

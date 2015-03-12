@@ -14,15 +14,17 @@ function get_img(movie){
     img.setAttribute("src",movie.photo);
     img.setAttribute("alt","movie_pic");
     
-    var hd = document.createElement("img");
-    hd.setAttribute("class","yHD");
-    hd.setAttribute("src","images/HD.png");
-    hd.setAttribute("alt","HD");
-    
     var contain = document.createElement("div");
     contain.setAttribute("class","imgcontainer");
     contain.appendChild(img);
-    contain.appendChild(hd);
+    
+    if(movie.HD){
+        var hd = document.createElement("img");
+        hd.setAttribute("class","yHD");
+        hd.setAttribute("src","images/HD.png");
+        hd.setAttribute("alt","HD");
+        contain.appendChild(hd);
+    }
     return contain;
 }
 function get_title(movie){
