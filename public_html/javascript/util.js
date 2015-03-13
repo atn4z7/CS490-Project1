@@ -1,3 +1,4 @@
+/* helper functions for getting movies info as well as set up the page */
 function $id(id){
     return document.getElementById(id);
 }
@@ -5,10 +6,14 @@ function $class(classes){
     return document.getElementsByClassName(classes);
 }
 function init(){
+    // set up the images
     fill_view();
+    // set up the search box
     make_search_field("searchField", "Search for movies here");
+    //show images as gridview 
     show('grid');
 }
+//function to get and create html element for movie image 
 function get_img(movie){
     var img = document.createElement("img");
     img.setAttribute("class","pic");
@@ -28,6 +33,7 @@ function get_img(movie){
     }
     return contain;
 }
+//function to get and create html element for movie title
 function get_title(movie){
     var title = document.createElement("span");
     title.setAttribute("class","title");
@@ -42,6 +48,7 @@ function get_title(movie){
     hdr.appendChild(date);
     return hdr;
 }
+//function to get and create html element for movie actor
 function get_actors(movie){
     var words = document.createElement("span");
     words.setAttribute("class","words");
@@ -57,6 +64,7 @@ function get_actors(movie){
     div.appendChild(actor);
     return div;
 }
+//function to get and create html element for movie rating
 function get_rating(movie){
     var rating = document.createElement("div");
     rating.setAttribute("class","rating");
@@ -65,7 +73,7 @@ function get_rating(movie){
     words.setAttribute("class","words");
     words.appendChild(document.createTextNode("Rating: "));
     rating.appendChild(words);
-    
+    //create star images based on rating
     for(var i=0;i<movie.rating;i++){
         var img = document.createElement("img");
         img.setAttribute("src","images/gold_star.png");
@@ -80,6 +88,7 @@ function get_rating(movie){
     }
     return rating;
 }
+//function to get and create html elements for a movie
 function get_info(movie){
     var info = document.createElement("section");
     info.setAttribute("class","info");
@@ -91,6 +100,7 @@ function get_info(movie){
     rating.appendChild(img);*/
     return info;
 }
+//function to get and create html element for movie content
 function get_content(movie){
     var content = document.createElement("section");
     content.setAttribute("class","content");
@@ -102,6 +112,7 @@ function get_content(movie){
 
     return content;
 }
+//functin to create a container for a movie
 function get_container(movie){
     var licontain = document.createElement("div");
     licontain.setAttribute("class","liContainer");
@@ -110,6 +121,7 @@ function get_container(movie){
     licontain.appendChild(get_content(movie));
     return licontain;
 }
+//function to fill the view with movies
 function fill_view(){    
     var ul = document.createElement("ul");
     
@@ -124,6 +136,7 @@ function fill_view(){
     }
     $id("view").appendChild(ul);
 }
+//function to change class of the view (grid to list/list to grid)
 function show(view){
     $id("view").className = view;
     if (view == "list"){
@@ -135,6 +148,7 @@ function show(view){
         $id("listBtn").src="images/list.jpg"; 
     }
 }
+//sort function based on rating/year (descending)
 function sort(){
     var value=$id("combo_box").value.toLowerCase();
     movies["movies"]=movies["movies"].sort(

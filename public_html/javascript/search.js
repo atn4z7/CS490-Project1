@@ -1,3 +1,5 @@
+/* javascript file for search box */
+
 /*make the text equal to the initial text if the text is empty
  * if the text is equal to the intial text, make the text color gray
  */
@@ -9,7 +11,7 @@ function show_initial_if_empty(element, initial_text) {
         element.style.color = "gray";
 }
 
-
+//search box event handlers
 function make_search_field(key, initial_text) {
     //the initial text color is gray
     var element = $id(key);
@@ -85,10 +87,13 @@ function search2() {
         }
     }
     if (text_field.value.length!=0){
+        //show results
         Display_search_results(dispresult);
+        //clear suggestion box
         document.getElementById("suggestions_box").style.display = "none";
     }
 }
+//function to show search results as suggestion items
 function show_search_results(text_field, results, sug_box, sug_item) {
 
     $id(sug_box).style.display = results.length == 0 ? "none" : "block";
@@ -107,6 +112,7 @@ function show_search_results(text_field, results, sug_box, sug_item) {
 
     $id(sug_box).innerHTML = html_code;
 }
+//function to display on movies that match the search keyword
 function Display_search_results(results){
     var movies = $class("movie");
     for(var i=0; i< movies.length; i++){
@@ -123,7 +129,7 @@ function Display_search_results(results){
         }
     }
 }
-
+//suggestion item click handler
 function fillSearch(movie){
     document.getElementById("suggestions_box").style.display = "none";
     document.getElementById("searchField").value=movie.substring(0,movie.lastIndexOf("(")) ;

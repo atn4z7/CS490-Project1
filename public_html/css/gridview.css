@@ -1,3 +1,4 @@
+/* css file for gridview */
 #view.grid ul{
     list-style: none;
     margin:0px;
@@ -68,7 +69,6 @@
     font-size: 15px;
     text-align: center;
 }
-
 
 #view.grid .actors{
     width: 200px;
