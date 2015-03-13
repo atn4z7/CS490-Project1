@@ -16,14 +16,14 @@
     min-width:830px;
     line-height: 65px;
 }
-#header #movieIcon{
+#movieIcon{
     float:left;
     height: 60px;
     width: 60px;
     left: 5px;
 }
 
-#header #title{
+#title{
     float:left;
     font-weight: bold;
     font-size: 20px;
@@ -31,7 +31,7 @@
     padding-left: 10px;
     padding-right: 30px;
 }
-#header #searchBarHolder{
+#searchBarHolder{
     vertical-align:middle;
     position:relative;
     float:left;
@@ -40,7 +40,7 @@ div.suggestions{
     background-color: white;
     position:relative;
     top:-16px;
-    left:268px;
+   
     z-index:50;
     border-color:lightgray;
     border-style:solid;
@@ -51,7 +51,7 @@ div.suggestions{
     overflow-x:auto;
     white-space: nowrap;
 }
-#header #searchField {
+#searchField {
     padding:7px 15px;
     border:1px solid lightgray;
     border-top-left-radius: 5px;
@@ -68,7 +68,7 @@ div.suggestions{
 #header div.sub_suggestions:hover{
     background-color:rgb(245,245,245);
 }
-#header #searchBtn {
+#searchBtn {
     width: 75px;
     position:relative;
     padding:6px 15px;
@@ -82,13 +82,14 @@ div.suggestions{
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
 }
-#header #button:hover  {
+#button:hover  {
     background-color:#fafafa;
     color:#207cca;
 }
 #header .sortHolder{
     position:absolute;
     top: 67px;
+    border-top:1px solid lightgray;
     border-bottom:1px solid lightgray;
     height: 30px;
     width:100%;
@@ -97,10 +98,9 @@ div.suggestions{
     padding-bottom:5px;   
     padding-right:10px;
     background-color: white;
-
 }
 
-#header .sortHolder #sortTxt{
+#sortTxt{
     float:left;
     padding-left:20px;
     padding-right:10px;
@@ -111,11 +111,11 @@ div.suggestions{
     height: 25px;
     border-color: lightgray;
 }
-#header .sortHolder #gridBtn,#listBtn{
+#gridBtn,#listBtn{
     float:right;
     width: 29px;
     height: 25px;
 }
-#header .sortHolder #gridBtn:active{
+#gridBtn:active{
     background:url("../images/grid_pressed.jpg");
 }

@@ -12,7 +12,7 @@
     padding:0px;
 }
 #view.list li{
-    height:270px;
+    height:260px;
     border-bottom: 1px dotted lightgray;
     padding-top:10px;
     padding-bottom:10px;
@@ -23,6 +23,7 @@
     top:15px;
     left:10px;
     width: 100%; 
+    margin-left: 20px;
 }
 #view.list .pic{
     float:left;
@@ -36,10 +37,10 @@
 }
 #view.list .yHD{
     position: absolute;
-    height: 50px;
-    width:50px;
-    left: 5px;
-    top: 5px;
+    height: 30px;
+    width: 40px;
+    left: 15px;
+    top: 15px;
 }
 #view.list .content{
     padding-left: 10px;
@@ -70,10 +71,10 @@
 }
 #view.list .actors .words{
     font-weight: bold;
-    font-size: 18px;
+    font-size: 16px;
 }
 #view.list .actors .actor{
-     font-size: 18px;
+     font-size: 16px;
 }
 #view.list .rating{
     display: flex;
@@ -83,7 +84,7 @@
 }
 #view.list .rating .words{
     font-weight: bold;
-    font-size: 18px;
+    font-size: 16px;
 }
 #view.list .rating img{
     height:20px;

@@ -7,6 +7,7 @@
     float:left;
     height: 210px;
     width: 210px;
+    margin:20px;
 }
 #view.grid .liContainer{
     position: relative;
@@ -36,10 +37,10 @@
 }
 #view.grid .yHD{
     position: absolute;
-    height: 50px;
-    width:50px;
-    left: 5px;
-    top: 5px;
+    height: 30px;
+    width: 40px;
+    left: 15px;
+    top: 15px
 }
 #view.grid .content{
     position: absolute;
@@ -51,9 +52,8 @@
     transition: 1s;
 }
 
-
 #view.grid .content header{
-    height:80px;
+    height:70px;
     width: 200px;
     background-color: rgba(0,0,0,.4);
 }
@@ -73,15 +73,16 @@
 #view.grid .actors{
     width: 200px;
     background-color: rgba(0,0,0,.7);
+    padding:7px;
 }
 #view.grid .actors .words{
     display: block;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 16px;
 }
 #view.grid .actors .actor{
     display: block;
-    font-size: 18px;
+    font-size: 16px;
 }
 #view.grid .rating, #view.grid .info{
     display: none;
