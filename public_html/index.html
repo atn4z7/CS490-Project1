@@ -14,8 +14,8 @@ and open the template in the editor.
         <link type="text/css" rel="stylesheet" href="css/gridview.css">
         <link type="text/css" rel="stylesheet" href="css/listview.css">
         <script src="data/movies.js"></script>
-        <script src="javascript/search.js"></script>
         <script src="javascript/util.js"></script>
+        <script src="javascript/search.js"></script>
     </head>
     <body onload="init()">
         <div id="header">
@@ -23,9 +23,8 @@ and open the template in the editor.
                 <img id="movieIcon" src='images/movie.png'> 
                 <span id="title">RENT A MOVIE</span>
                 <div id="searchBarHolder">
-                    <input id="searchField" type="text"
-                           onkeyup="search()" >
-                    <button id="searchBtn" onclick="search2()"> Search </button>
+                    <input id="searchField" type="text" onkeyup="live_search()" >
+                    <button id="searchBtn" onclick="live_search(1)"> Search </button>
                     <div id="suggestions_box" class="suggestions"></div>
                 </div>
             </div>

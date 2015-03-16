@@ -1,4 +1,5 @@
 /* helper functions for getting movies info as well as set up the page */
+var movies = movies.movies;
 function $id(id){
     return document.getElementById(id);
 }
@@ -7,11 +8,11 @@ function $class(classes){
 }
 function init(){
     // set up the images
-    fill_view();
+    fill_view(movies);
     // set up the search box
     make_search_field("searchField", "Search for movies here");
     //show images as gridview 
-    show('grid');
+    show('list');
 }
 //function to get and create html element for movie image 
 function get_img(movie){
@@ -74,15 +75,12 @@ function get_rating(movie){
     words.appendChild(document.createTextNode("Rating: "));
     rating.appendChild(words);
     //create star images based on rating
-    for(var i=0;i<movie.rating;i++){
+    for(var i=0;i<5;i++){
         var img = document.createElement("img");
-        img.setAttribute("src","images/gold_star.png");
-        img.setAttribute("alt"," ");
-        rating.appendChild(img);
-    }
-    for(var i=5-movie.rating;i>0;i--){
-        var img = document.createElement("img");
-        img.setAttribute("src","images/regular_star.png");
+        if(i<movie.rating)
+            img.setAttribute("src","images/gold_star.png");
+        else
+            img.setAttribute("src","images/regular_star.png");
         img.setAttribute("alt"," ");
         rating.appendChild(img);
     }
@@ -93,11 +91,7 @@ function get_info(movie){
     var info = document.createElement("section");
     info.setAttribute("class","info");
     info.appendChild(document.createTextNode(movie.description));
-    /*
-    var rating = document.createElement("div");
-    rating.setAttribute("class","rating");
-    rating.appendChild(words);
-    rating.appendChild(img);*/
+    
     return info;
 }
 //function to get and create html element for movie content
@@ -122,16 +116,17 @@ function get_container(movie){
     return licontain;
 }
 //function to fill the view with movies
-function fill_view(){    
+function fill_view(movies){
+    $id("view").innerHTML = "";
     var ul = document.createElement("ul");
     
-    for(var i=0;i<movies.movies.length;i++){
+    for(var i=0;i<movies.length;i++){
         var li = document.createElement("li");
         li.setAttribute("id","movie_"+
-                movies.movies[i].title.replace(/ /g, "_"));
+                movies[i].title.replace(/ /g, "_"));
         li.setAttribute("class","movie");
         
-        li.appendChild(get_container(movies.movies[i]));
+        li.appendChild(get_container(movies[i]));
         ul.appendChild(li);
     }
     $id("view").appendChild(ul);
@@ -148,22 +143,3 @@ function show(view){
         $id("listBtn").src="images/list.jpg"; 
     }
 }
-//sort function based on rating/year (descending)
-function sort(){
-    var value=$id("combo_box").value.toLowerCase();
-    movies["movies"]=movies["movies"].sort(
-            function(a,b){
-                if(a[value]<b[value])
-                    return 1;
-                if(a[value]==b[value])
-                    return 0;
-                if(a[value]>b[value])
-                    return -1;
-            }
-        );
-    
-    $id("view").innerHTML = "";
-    fill_view(); 
-}
-
-
