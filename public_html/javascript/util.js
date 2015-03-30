@@ -12,7 +12,7 @@ function init(){
     // set up the search box
     make_search_field("searchField", "Search for movies here");
     //show images as gridview 
-    show('list');
+    show('grid');
 }
 //function to get and create html element for movie image 
 function get_img(movie){
@@ -38,7 +38,7 @@ function get_img(movie){
 function get_title(movie){
     var title = document.createElement("span");
     title.setAttribute("class","title");
-    title.appendChild(document.createTextNode(movie.title));
+    title.appendChild(document.createTextNode(movie.title.toUpperCase()));
 
     var date = document.createElement("span");
     date.setAttribute("class","date");

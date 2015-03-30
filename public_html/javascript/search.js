@@ -74,21 +74,19 @@ function sort(){
                     return -1;
             }
         );
-    
     $id("view").innerHTML = "";
     fill_view(m);
 }
 //find all movies with txt within its info
 function movies_search(txt) {
     var results = new Array();
-
+    txt = txt.toLowerCase().trim();
+    
     for (var i = 0; i < movies.length; i++) {
         //trim the value, and make case insensitive comparison
-        var start = (movies[i].title+
-                movies[i].year +
-                movies[i].starring)
-                .toLowerCase().search(txt.toLowerCase().trim());
-        if (start != -1){ //if the index is found
+        var start = (movies[i].title + movies[i].year +
+            movies[i].starring).toLowerCase().search(txt);
+        if (start != -1 || txt == "search for movies here"){ //if the index is found
             results.push(movies[i]);
         }
     }
@@ -99,16 +97,13 @@ function live_search(ondemand){
     if(event.keyCode == 13 || ondemand){
         fill_view(movies_search($id("searchField").value));
     }else{
-        var results = movies_search($id("searchField").value);
-        if (results.length!=0){
-            show_sugg(results);
-        }
+        show_sugg(movies_search($id("searchField").value));
     }
 }
 //show live search results as suggestion items
 function show_sugg(results){
     $id("suggestions_box").style.display = results.length == 0 ? "none" : "block";
-    $id("suggestions_box").focus();
+
     $id("suggestions_box").innerHTML = "";
     
     for (var i = 0; i<5 && i < results.length; i++) {
@@ -118,10 +113,11 @@ function show_sugg(results){
         div.setAttribute("id","sub_suggestions");
         div.setAttribute("data-title",results[i].title);
         div.onclick = function(){fillSearch(this)};
-   
-        var words = results[i].title + "(" +results[i].year+
-                ") Starring: " + results[i].starring;
-        div.appendChild(document.createTextNode(words));
+        
+        var words = (results[i].title + "(" +results[i].year+
+                ") Starring: " + results[i].starring).replace(
+                RegExp($id("searchField").value.trim(), "gi"),"<b>"+"$&"+"</b>");
+        div.innerHTML = words;
         $id("suggestions_box").appendChild(div);
     }
 }
@@ -129,6 +125,6 @@ function show_sugg(results){
 function fillSearch(element){
     $id("suggestions_box").style.display = "none";
     $id("searchField").value = element.getAttribute("data-title"); ;
-    $id("searchField").focus();
+
     fill_view(movies_search($id("searchField").value));
 }
